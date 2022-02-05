@@ -3,6 +3,10 @@ using System;
 
 public class Player : Area2D
 {
+	// Represents the event for an enemy colliding with the player
+	[Signal]
+	public delegate void Hit();
+	
 	// Member variables
 	[Export]
 	public int Speed = 400;     // Player's movement speed (px/s)
@@ -12,6 +16,7 @@ public class Player : Area2D
 	public override void _Ready()
 	{
 		ScreenSize = GetViewportRect().Size;
+		Hide();  // Player should be hidden at the beginning of the game
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,5 +61,30 @@ public class Player : Area2D
 			x: Mathf.Clamp(Position.x, 0, ScreenSize.x),
 			y: Mathf.Clamp(Position.y, 0, ScreenSize.y)
 		);
+		
+		// Set player animations based on speed and direction
+		if(velocity.x != 0)
+		{
+			animatedSprite.Animation = "walk";
+			animatedSprite.FlipV = false;
+			animatedSprite.FlipH = velocity.x < 0;
+		}
+		else if(velocity.y != 0)
+		{
+			animatedSprite.Animation = "up";
+			animatedSprite.FlipV = velocity.y > 0;
+		}
 	}
+}
+
+// This function calls when an enemy collides with the player
+// using the "body_entered" signal.
+// This will emit the "Hit" signal (declared at the top of this class)
+private void _on_Player_body_entered(object body)
+{
+	Hide();  // Player vanishes after colliding
+	EmitSignal(nameof(Hit));
+	// Disables player collisions so that "Hit" is not triggererd more than once.
+	// SetDeferred ensures that Godot will wait so that collisions are not disabled during collision processing.
+	GetNode<CollisionShape2d>("CollisionShape2d").SetDeferred("disabled", true);
 }

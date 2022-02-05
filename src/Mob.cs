@@ -23,9 +23,9 @@ public class Mob : RigidBody2D
 //      
 //  }
 
-public void OnVisibilityNotifier2DScreenExited()
-{
-	QueueFree();  // Tells mob to delete itself after leaving the screen.
-}
+	public void OnVisibilityNotifier2DScreenExited()
+	{
+		QueueFree();  // Tells mob to delete itself after leaving the screen.
+	}
 
 }

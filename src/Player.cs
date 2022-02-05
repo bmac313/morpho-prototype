@@ -76,6 +76,14 @@ public class Player : Area2D
 		}
 	}
 	
+	// Call this function when starting a new game
+	public void Start(Vector2 pos)
+	{
+		Position = pos;
+		Show();
+		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+	}
+	
 	// This function calls when an enemy collides with the player
 	// using the "body_entered" signal.
 	// This will emit the "Hit" signal (declared at the top of this class)

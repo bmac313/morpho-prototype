@@ -75,16 +75,17 @@ public class Player : Area2D
 			animatedSprite.FlipV = velocity.y > 0;
 		}
 	}
-}
-
-// This function calls when an enemy collides with the player
-// using the "body_entered" signal.
-// This will emit the "Hit" signal (declared at the top of this class)
-private void _on_Player_body_entered(object body)
-{
-	Hide();  // Player vanishes after colliding
-	EmitSignal(nameof(Hit));
-	// Disables player collisions so that "Hit" is not triggererd more than once.
-	// SetDeferred ensures that Godot will wait so that collisions are not disabled during collision processing.
-	GetNode<CollisionShape2d>("CollisionShape2d").SetDeferred("disabled", true);
+	
+	// This function calls when an enemy collides with the player
+	// using the "body_entered" signal.
+	// This will emit the "Hit" signal (declared at the top of this class)
+	public void OnPlayerBodyEntered(PhysicsBody2D body)
+	{
+		Hide();  // Player vanishes after colliding
+		EmitSignal(nameof(Hit));
+		// Disables player collisions so that "Hit" is not triggererd more than once.
+		// SetDeferred ensures that Godot will wait so that collisions are not disabled during collision processing.
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+	}
+	
 }

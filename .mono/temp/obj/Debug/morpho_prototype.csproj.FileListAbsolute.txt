@@ -1,0 +1,9 @@
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.csproj.AssemblyReference.cache
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.AssemblyInfoInputs.cache
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.AssemblyInfo.cs
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.csproj.CoreCompileInputs.cache
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\bin\Debug\morpho_prototype.dll
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\bin\Debug\morpho_prototype.pdb
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.dll
+C:\Users\Brendan\Documents\GodotProjects\morpho_prototype\.mono\temp\obj\Debug\morpho_prototype.pdb

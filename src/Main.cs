@@ -16,9 +16,6 @@ public class Main : Node
 	{
 		// Generates a new random number on each run of the game.
 		GD.Randomize();
-		
-		// Start the game
-		NewGame();
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +26,6 @@ public class Main : Node
 
 	public void NewGame()
 	{
-		// TODO: game starts before player hits the start button. Fix ASAP.
 		GetTree().CallGroup("mobs", "queue_free");
 		
 		var hud = GetNode<HUD>("HUD");

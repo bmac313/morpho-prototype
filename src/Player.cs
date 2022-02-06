@@ -42,7 +42,7 @@ public class Player : Area2D
 			velocity.y += 1;
 		}
 		
-		if(velocity.Length() > 0)  // If the player is moving
+		if(velocity.Length() > 0)  // If movement input is detected
 		{
 			// Use Speed to calculate movement vector (normalized i.e. set to a length of 1)
 			// Then begin movement with Play().
@@ -69,10 +69,13 @@ public class Player : Area2D
 			animatedSprite.FlipV = false;
 			animatedSprite.FlipH = velocity.x < 0;
 		}
-		else if(velocity.y != 0)
+		else if(velocity.y < 0)
 		{
 			animatedSprite.Animation = "up";
-			animatedSprite.FlipV = velocity.y > 0;
+		}
+		else if(velocity.y > 0)
+		{
+			animatedSprite.Animation = "down";
 		}
 	}
 	

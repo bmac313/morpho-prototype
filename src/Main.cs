@@ -37,6 +37,8 @@ public class Main : Node
 		var startPosition = GetNode<Position2D>("StartPosition");
 		player.Start(startPosition.Position);
 		GetNode<Timer>("StartTimer").Start();
+		
+		GetNode<AudioStreamPlayer>("Music").Play();
 	}
 
 	public void GameOver()
@@ -44,6 +46,9 @@ public class Main : Node
 		GetNode<HUD>("HUD").ShowGameOver();
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
+		
+		GetNode<AudioStreamPlayer>("SfxDie").Play();
+		GetNode<AudioStreamPlayer>("Music").Stop();
 	}
 	
 	public void OnMobTimerTimeout()

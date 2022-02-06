@@ -81,7 +81,7 @@ public class Player : Area2D
 	{
 		Position = pos;
 		Show();
-		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+		GetNode<CollisionShape2D>("PlayerCollision").Disabled = false;
 	}
 	
 	// This function calls when an enemy collides with the player
@@ -89,11 +89,12 @@ public class Player : Area2D
 	// This will emit the "Hit" signal (declared at the top of this class)
 	public void OnPlayerBodyEntered(PhysicsBody2D body)
 	{
+		
 		Hide();  // Player vanishes after colliding
 		EmitSignal(nameof(Hit));
 		// Disables player collisions so that "Hit" is not triggererd more than once.
 		// SetDeferred ensures that Godot will wait so that collisions are not disabled during collision processing.
-		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+		GetNode<CollisionShape2D>("PlayerCollision").SetDeferred("disabled", true);
 	}
 	
 }

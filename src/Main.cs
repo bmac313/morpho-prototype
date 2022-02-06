@@ -29,6 +29,13 @@ public class Main : Node
 
 	public void NewGame()
 	{
+		// TODO: game starts before player hits the start button. Fix ASAP.
+		GetTree().CallGroup("mobs", "queue_free");
+		
+		var hud = GetNode<HUD>("HUD");
+		hud.UpdateScore(Score);
+		hud.ShowMessage("Get Ready!");
+		
 		Score = 0;
 		var player = GetNode<Player>("Player");
 		var startPosition = GetNode<Position2D>("StartPosition");
@@ -38,6 +45,7 @@ public class Main : Node
 
 	public void GameOver()
 	{
+		GetNode<HUD>("HUD").ShowGameOver();
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
 	}
@@ -72,6 +80,7 @@ public class Main : Node
 	public void OnScoreTimerTimeout()
 	{
 		Score++;
+		GetNode<HUD>("HUD").UpdateScore(Score);
 	}
 
 

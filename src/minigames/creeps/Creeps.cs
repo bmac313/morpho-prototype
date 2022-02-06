@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Main : Node
+public class Creeps : Node
 {
 	// Member variables
 	public int Score;

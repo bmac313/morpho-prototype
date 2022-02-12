@@ -8,6 +8,7 @@
 [ext_resource path="res://art/enemyFlyingAlt_1.png" type="Texture" id=6]
 [ext_resource path="res://src/minigames/creeps/Mob.cs" type="Script" id=7]
 
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 2 ) ],

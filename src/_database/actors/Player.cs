@@ -1,6 +1,22 @@
 using Godot;
 using System;
 
+public enum PlayerState
+{
+	IDLE,
+	WALKING,
+	SPEAKING,
+	INTERACTING
+}
+
+public enum FieldCommand
+{
+	MOVE,
+	STOP,
+	TALK,
+	INTERACT
+}
+
 public class Player : Area2D
 {
 	// Represents the event for an enemy colliding with the player
@@ -98,6 +114,11 @@ public class Player : Area2D
 		// Disables player collisions so that "Hit" is not triggererd more than once.
 		// SetDeferred ensures that Godot will wait so that collisions are not disabled during collision processing.
 		GetNode<CollisionShape2D>("PlayerCollision").SetDeferred("disabled", true);
+	}
+	
+	private void OnNPCBodyShapeEntered(RID body_rid, object body, int body_shape_index, int local_shape_index)
+	{
+		Speed = 0;
 	}
 	
 }

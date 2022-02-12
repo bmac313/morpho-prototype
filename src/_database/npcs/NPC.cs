@@ -1,11 +1,16 @@
 using Godot;
 using System;
 
+// This is a base class used to create NPCs and should NOT be instantiated directly.
+// Instead, use one of its subclasses.
+
 public class NPC : Area2D
-{
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
+{	
+	// Member variables
+	public int id;
+	public string name;
+	[Export]
+	public bool unique;  // Set to true or false based on whether the character is unique or generic.
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

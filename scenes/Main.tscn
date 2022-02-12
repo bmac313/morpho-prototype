@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/_database/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main.cs" type="Script" id=2]
 [ext_resource path="res://scenes/_database/npcs/NPC.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/_database/interactables/Chest.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 274, 35 )
+
+[node name="Chest" parent="." instance=ExtResource( 4 )]
+position = Vector2( 404, 33 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 Speed = 300

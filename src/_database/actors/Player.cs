@@ -57,6 +57,10 @@ public class Player : Area2D
 		{
 			velocity.y += 1;
 		}
+		if(Input.IsActionJustPressed("interact"))
+		{
+			TryInteract();
+		}
 		
 		if(velocity.Length() > 0)  // If movement input is detected
 		{
@@ -101,6 +105,13 @@ public class Player : Area2D
 		Position = pos;
 		Show();
 		GetNode<CollisionShape2D>("PlayerCollision").Disabled = false;
+	}
+	
+	// This function uses raycasting to check if there are any objects within range
+	// that the player can interact with.
+	public void TryInteract()
+	{
+		// TODO: tryInteract
 	}
 	
 	// This function calls when an enemy collides with the player

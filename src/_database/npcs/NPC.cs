@@ -10,6 +10,8 @@ public class NPC : Area2D
 	public int id;
 	public string name;
 	[Export]
+	public bool interactable;
+	[Export]
 	public bool unique;  // Set to true or false based on whether the character is unique or generic.
 
 	// Called when the node enters the scene tree for the first time.
